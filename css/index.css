@@ -1,0 +1,275 @@
+.mySwiper{
+    height: auto;
+}
+
+.swiper-pagination-bullet{
+    background-color: #ffffff !important;
+}
+
+.swiper-pagination{
+    bottom: 20px !important;
+}
+
+.swiperImg{
+    width: 100%;
+    height: inherit;
+}
+
+/* search */
+.searchBox{
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.cf{
+    zoom:1;
+}    
+
+ /* Form wrapper styling */
+.search-wrapper {
+    width: 86%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+ 
+/* Form text input */
+.search-wrapper input {
+    height: 36px;
+    background: #EEE;
+    border-radius: 26px;
+    font-family: 'GmarketSansMedium';
+    color: #3a3a3a;
+    font-size: 14px;
+    opacity: 60%;
+    box-shadow: cornflowerblue;
+    width: 91%;
+    padding: 3px 10px 0px 10px;
+    margin: 0%;
+    border: none;
+}
+
+.search-wrapper{
+    position: relative;
+    border: 3px solid #659BFF !important;
+    border-radius: 26px;
+    height: 46px;
+}
+ 
+.search-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+}
+ 
+/* Form submit button */
+.search-wrapper button {
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 3px solid #659BFF;
+    padding: 0;
+    cursor: pointer;
+    height: 43px;
+    width: 72px;
+    color: white;
+    text-transform: uppercase;
+    background: #659BFF;
+    border-radius: 26px;
+    position: absolute;
+    right: -3px;
+    top: -2px;
+    font-family: 'GmarketSansMedium';
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+ 
+.search-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+}  
+
+/* 인기 급상승 혜택 */
+.benefit__Products{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+}
+
+.individual__Product{
+    flex: 1 1 40%;
+    margin: 10px 13px 0px 13px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 20px;
+    height: 196px;
+    overflow: hidden;
+}
+
+.product__Image{
+    position: relative;
+}
+
+.product__Image>img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    height: 100px;
+}
+
+.individual__Product__amount{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #649AFF;
+    border-radius: 11px 0px 6px 0px;
+    font-size: 10px;
+    padding: 8px 4px 4px 8px;
+    color: #ffffff;
+    font-family: 'GmarketSansLight';
+}
+
+.product__Information{
+    padding: 8px;
+    font-family: 'GmarketSansBold';
+    color: #3a3a3a;
+}
+
+.product__Information>h2{
+    margin-bottom: 2px;
+}
+
+.product__Information>p{
+    font-size: 12px;
+    font-family: 'GmarketSansMedium';
+    padding: 2px 0px 0px 0px;
+    opacity: 70%;
+}
+
+/* 자주 찾는 혜택 */
+.frequentlyVisited{
+    width: 92%;
+    background-color: #EFF5FF;
+    border-radius: 24px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #3a3a3a;
+}
+
+.frequentlyVisited__text{
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 18px 10px 18px;
+    align-items: flex-start;
+}
+
+.frequentlyVisited__text>h2{
+    font-family: 'GmarketSansBold';
+    font-size: 18px;
+}
+
+.frequentlyVisited__more{
+    display: flex;
+    align-items: center;
+}
+
+.frequentlyVisited__text__a{
+    font-family: 'GmarketSansMedium';
+    font-size: 12px;
+}
+
+.frequentlyVisited__more__li{
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.frequentlyVisited__border__bottom{
+    border-bottom: 1px solid #3e4056;
+    width: 92%;
+    height: 2px;
+    display: block;
+    margin: 0 auto;
+    opacity: 14%;
+}
+
+.frequentlyVisited__list{
+    padding-bottom: 18px;
+}
+
+.frequentlyVisited__list__ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 18px 10px 18px;
+    box-sizing: border-box;
+}
+
+.frequentlyVisited__list__li{
+    width: 22%;
+    padding: 20px 10px 0px 10px;
+}
+
+.frequentlyVisited__list__imgbox{
+    height: 76%;
+}
+
+.frequentlyVisited__list__img{
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.frequentlyVisited__list__p{
+    font-family: 'GmarketSansMedium';
+    margin-top: 10px ;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 고지사항 */
+.notice{
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.notice__border__top, .notice__border__bottom{
+    width: 95%;
+    border-top: 1px solid #3e4056;
+    display: block;
+    opacity: 14%;
+    margin: 0 auto;
+}
+
+.notice__text{
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'GmarketSansMedium';
+    color: #3a3a3a;
+    padding: 14px 0px 14px 0px
+}
+
+/* footer 정보 */
+.main__footer{
+    width: 92%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.main__footer>h4{
+    color: #3a3a3a;
+    font-family: 'GmarketSansMedium';
+    font-size: 14px;
+    margin-bottom: 8px;
+    opacity: 85%;
+}
+
+.main__footer>p{
+    color: #3a3a3a;
+    font-family: 'GmarketSansMedium';
+    font-size: 13px;
+    padding-top: 6px;
+    opacity: 60%;
+}
