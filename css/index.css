@@ -149,6 +149,19 @@
     opacity: 70%;
 }
 
+.show-more-btn{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #659BFF;
+    margin-top: 30px;
+    border-radius: 10px;
+    height: 30px;
+    padding: 10px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
 /* 자주 찾는 혜택 */
 .frequentlyVisited{
     width: 92%;
