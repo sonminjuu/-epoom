@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <title>menu</title>
+</head>
+<style>
+    @keyframes msg {
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes home {
+        50% {
+            transform: translateY(-55px);
+        }
+    }
+
+    @keyframes bell {
+        50% {
+            transform: rotate(-10deg);
+        }
+    }
+
+    @keyframes clickCircle {
+        100% {
+            opacity: 0;
+        }
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        color: inherit;
+        list-style: none;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: block;
+    }
+
+    img {
+        width: 100%;
+        vertical-align: middle;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(45deg, #d9c0f3, #8c69e6);
+    }
+
+    #app {
+        width: 320px;
+        height: 300px;
+        border-radius: 0 0 30px 30px;
+        background-color: #d9c0f3;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 30px 0 #8c69e6;
+    }
+
+    #app .bar {
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #app .icon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    #app .icon.active::after {
+        transform: translateY(0px);
+    }
+
+    #app .icon.active::before {
+        opacity: 1;
+        width: 35px;
+        height: 35px;
+        animation: clickCircle linear 0.5s forwards;
+    }
+
+    #app .icon.active svg {
+        fill: #8c69e6;
+        stroke: #8c69e6;
+    }
+
+    #app .icon.active .msg {
+        animation: msg linear 0.5s alternate;
+        animation-delay: 0.2s;
+    }
+
+    #app .icon.active .home .roof,
+    #app .icon.active .user .head {
+        animation: home linear 0.5s alternate;
+        animation-delay: 0.2s;
+    }
+
+    #app .icon.active .bell {
+        animation: bell linear 0.5s alternate;
+        animation-delay: 0.2s;
+    }
+
+    #app .icon::after {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: #8c69e6;
+        margin: 2px auto 0;
+        transform: translateY(20px);
+        transition: transform 0.2s;
+    }
+
+    #app .icon::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #c6b6f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    #app .icon .home,
+    #app .icon .msg,
+    #app .icon .user {
+        stroke-width: 15;
+        stroke: #000;
+    }
+
+    #app .button {
+        width: 55px;
+        height: 55px;
+        padding: 18px;
+        background-color: #6e41ed;
+        border-radius: 50%;
+        transform: translateY(-20px);
+        transition: 0.5s;
+        position: relative;
+    }
+
+    #app .button.active {
+        transform: translateY(-20px) rotate(-45deg);
+        background-color: #9b2ce6;
+    }
+
+    #app .button.active svg {
+        stroke-width: 15;
+        stroke: #fff;
+        fill: white;
+    }
+
+    #app .button.active .tag {
+        top: 20px;
+        transform: translate(44px, -64px) scale(1) rotate(90deg);
+    }
+
+    #app .button.active .heart {
+        top: 20px;
+        transform: translate(90px, -110px) scale(1) rotate(45deg);
+    }
+
+    #app .button::after,
+    #app .button::before {
+        display: none;
+    }
+
+    #app .button svg {
+        stroke-width: 15;
+        stroke: #fff;
+        fill: white;
+    }
+
+    #app .button.tag,
+    #app .button.heart {
+        background-color: #6e41ed;
+        transition: transform 0.5s;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        transform: translate(0, 0) scale(0) rotate(0deg);
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="bar">
+            <div class="icon active">
+                <svg class="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 -20 512 512">
+                    <path class="roof"
+                        d="M506.555 208.064L263.859 30.367a13.3 13.3 0 00-15.716 0L5.445 208.064c-5.928 4.341-7.216 12.665-2.875 18.593s12.666 7.214 18.593 2.875L256 57.588l234.837 171.943a13.236 13.236 0 007.848 2.57c4.096 0 8.138-1.885 10.744-5.445 4.342-5.927 3.054-14.251-2.874-18.592z" />
+                    <path
+                        d="M442.246 232.543c-7.346 0-13.303 5.956-13.303 13.303v211.749H322.521V342.009c0-36.68-29.842-66.52-66.52-66.52s-66.52 29.842-66.52 66.52v115.587H83.058V245.847c0-7.347-5.957-13.303-13.303-13.303s-13.303 5.956-13.303 13.303V470.9c0 7.347 5.957 13.303 13.303 13.303h133.029c6.996 0 12.721-5.405 13.251-12.267.032-.311.052-.651.052-1.036V342.01c0-22.009 17.905-39.914 39.914-39.914s39.914 17.906 39.914 39.914V470.9c0 .383.02.717.052 1.024.524 6.867 6.251 12.279 13.251 12.279h133.029c7.347 0 13.303-5.956 13.303-13.303V245.847c-.001-7.348-5.957-13.304-13.304-13.304z" />
+                </svg>
+            </div>
+            <div class="icon">
+                <svg class="msg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M74.39 480.536H38.177l25.607-25.607c13.807-13.807 22.429-31.765 24.747-51.246-36.029-23.644-62.375-54.751-76.478-90.425C-2.04 277.611-3.811 238.37 6.932 199.776c12.89-46.309 43.123-88.518 85.128-118.853 45.646-32.963 102.47-50.387 164.33-50.387 77.927 0 143.611 22.389 189.948 64.745 41.744 38.159 64.734 89.63 64.734 144.933 0 26.868-5.471 53.011-16.26 77.703-11.165 25.551-27.514 48.302-48.593 67.619-46.399 42.523-112.042 65-189.83 65-28.877 0-59.01-3.855-85.913-10.929-25.465 26.123-59.972 40.929-96.086 40.929zm182-420c-124.039 0-200.15 73.973-220.557 147.285-19.284 69.28 9.143 134.743 76.043 175.115l7.475 4.511-.23 8.727c-.456 17.274-4.574 33.912-11.945 48.952 17.949-6.073 34.236-17.083 46.99-32.151l6.342-7.493 9.405 2.813c26.393 7.894 57.104 12.241 86.477 12.241 154.372 0 224.682-93.473 224.682-180.322 0-46.776-19.524-90.384-54.976-122.79-40.713-37.216-99.397-56.888-169.706-56.888z" />
+                </svg>
+            </div>
+            <div class="icon button">
+                <svg class="more" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M492 236H276V20c0-11.046-8.954-20-20-20s-20 8.954-20 20v216H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h216v216c0 11.046 8.954 20 20 20s20-8.954 20-20V276h216c11.046 0 20-8.954 20-20s-8.954-20-20-20z" />
+                </svg>
+                <div class="button tag">
+                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M456.9 0H262.6A15 15 0 00252 4.4L16 240.2a55.2 55.2 0 000 78l177.7 177.7a54.7 54.7 0 0039 16c14.7 0 28.6-5.6 39-16L507.6 260a15 15 0 004.4-10.6V55.1A55.2 55.2 0 00456.9 0zM482 243.2L250.5 474.7a25 25 0 01-17.7 7.3 25 25 0 01-17.8-7.3L37.3 297a25.2 25.2 0 010-35.5L268.8 30h188A25.1 25.1 0 01482 55.1zm0 0" />
+                        <path
+                            d="M379.8 85a46.8 46.8 0 00-47.1 47.2 46.8 46.8 0 0047 47.1 46.8 46.8 0 0047.2-47A46.8 46.8 0 00379.8 85zm12.1 59.3a17 17 0 01-24.2 0 17 17 0 010-24.2 17 17 0 0124.2 0 17 17 0 010 24.2zm0 0" />
+                    </svg>
+                </div>
+                <div class="button heart">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412.735 412.735">
+                        <path
+                            d="M295.706 35.522a115.985 115.985 0 00-89.339 41.273 114.413 114.413 0 00-89.339-41.273C52.395 35.522 0 87.917 0 152.55c0 110.76 193.306 218.906 201.143 223.086a9.404 9.404 0 0010.449 0c7.837-4.18 201.143-110.759 201.143-223.086 0-64.633-52.396-117.028-117.029-117.028zm-89.339 319.216C176.065 336.975 20.898 242.412 20.898 152.55c0-53.091 43.039-96.131 96.131-96.131a94.041 94.041 0 0180.457 43.363c3.557 4.905 10.418 5.998 15.323 2.44a10.968 10.968 0 002.44-2.44c29.055-44.435 88.631-56.903 133.066-27.848a96.129 96.129 0 0143.521 80.615c.001 90.907-155.167 184.948-185.469 202.189z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="icon">
+                <svg class="bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M466.768 380.91c-2.034-10.857-12.484-18.009-23.342-15.974-10.856 2.035-18.009 12.485-15.975 23.341 1.51 8.055-2.031 13.795-4.275 16.5-2.239 2.697-7.215 7.223-15.38 7.223H104.204c-8.165 0-13.141-4.525-15.38-7.223-2.244-2.705-5.785-8.445-4.275-16.5 5.673-30.272 17.056-50.183 28.064-69.439 13.369-23.384 27.193-47.565 27.193-84.839v-30c0-63.067 51.263-115.072 114.302-115.987h3.781c62.826.913 113.918 52.918 113.918 115.988v30c0 31.723 10.377 53.552 20.104 71.523 3.62 6.688 10.5 10.484 17.606 10.484 3.215 0 6.477-.777 9.502-2.415 9.715-5.257 13.327-17.395 8.069-27.108-9.678-17.882-15.281-32.203-15.281-52.484v-30c0-41.161-15.943-80.037-44.894-109.466-24.81-25.221-56.667-40.96-91.106-45.304V20c0-11.046-8.954-20-20-20s-20 8.954-20 20v29.289c-76.458 9.92-136 75.892-136 154.711v30c0 26.647-9.673 43.566-21.919 64.986-12.064 21.104-25.739 45.023-32.655 81.924-3.301 17.616 1.369 35.626 12.813 49.414C69.479 444.1 86.304 452 104.204 452h91.989c0 33.084 26.916 60 60 60s60-26.916 60-60h91.603c17.9 0 34.725-7.9 46.158-21.676 11.444-13.787 16.114-31.798 12.814-49.414zM256.193 472c-11.028 0-20-8.972-20-20h40c0 11.028-8.971 20-20 20z" />
+                </svg>
+            </div>
+            <div class="icon">
+                <svg class="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 512 512">
+                    <path d="M256.661,257.323c-135.275,0-245.333,110.059-245.333,245.333c0,5.888,4.779,10.667,10.667,10.667
+                s10.667-4.779,10.667-10.667c0-123.52,100.48-224,224-224s224,100.48,224,224c0,5.888,4.779,10.667,10.667,10.667
+                c5.888,0,10.667-4.779,10.667-10.667C501.995,367.36,391.936,257.323,256.661,257.323z" />
+
+                    <path class="head" d="M256.661,0c-64.683,0-117.333,52.629-117.333,117.333s52.651,117.333,117.333,117.333s117.333-52.629,117.333-117.333
+                S321.344,0,256.661,0z M256.661,213.333c-52.928,0-96-43.072-96-96s43.072-96,96-96c52.928,0,96,43.072,96,96
+                S309.589,213.333,256.661,213.333z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            'use strict';
+            (function () {
+                let icons = document.querySelectorAll('.icon')
+                icons.forEach((icon) => {
+                    icon.addEventListener('click', clickIcon)
+                })
+
+                function clickIcon() {
+                    if ([...this.classList].indexOf('active') !== -1) {
+                        this.classList.remove('active')
+                    } else {
+                        icons.forEach((icon) => icon.classList.remove('active'))
+                        this.classList.add('active')
+                    }
+                }
+            })()
+        });
+    </script>
+</body>
